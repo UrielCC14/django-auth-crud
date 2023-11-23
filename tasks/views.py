@@ -103,6 +103,7 @@ def Create_Task(request):
                 'form':Create_Task_Form,
                 'error': 'Pleace provide valid data'
             })
+            
 @login_required
 def Task_Detail(request,id):    
     if request.method == 'GET':

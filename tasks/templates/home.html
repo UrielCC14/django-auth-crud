@@ -1,24 +1,77 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<main class="container py-5">
-    <section class="card card-body">
-        <h1 class="display-1 text-center">DJango App</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis aperiam, alias deleniti suscipit fuga beatae dolorum et quo, ipsa, quam quis magnam dolores necessitatibus ad! Tempore quod cum voluptatum impedit architecto mollitia laboriosam dolor nemo officiis a? Doloribus, exercitationem. Illo dolorem atque sapiente perspiciatis itaque aspernatur aliquid veniam perferendis voluptates? Obcaecati voluptas temporibus facere illum cupiditate voluptate eius tempora ut neque quasi, quis blanditiis ducimus, dolore optio a sunt non repellendus in dolores distinctio possimus ullam aperiam corrupti sit. Veritatis nisi, quia iure natus illo tempora similique nemo animi ratione sunt numquam vel! Praesentium deserunt voluptates nostrum repudiandae libero sint.</p>
-        
-        {% if user.is_authenticated %}
-        {% else %}
-        <div class="text-center">
-            <a class="btn btn-dark" href="{% url 'signup' %}">
-                SignUp
-            </a>
 
-            <a class="btn btn-secondary" href="{% url 'signin' %}">
-                SignIn
-            </a>
+<main>
+    <section class="contenedor sobre-nosotros">
+        <h2 class="titulo">Nuestra Aplicacion</h2>
+        <div class="contenedor-sobre-nosotros">
+            <img src="img/ilustracion2.svg" alt="" class="imagen-about-us">
+            <div class="contenido-textos">
+                <h3><span>1</span>La mejor aplicacion de productividad</h3>
+                <p>TaskMind esta diseñada para que puedas programar tus tareas y actividades sin tener que esforzarte mucho y su interfaz intuitiva y clara te hara evitar las distracciones y concentrarte solo en lo nesesario</p>
+                <h3><span>2</span>Una aplicacion Sencilla, Rapida y Segura</h3>
+                <p>TaskMind esta diseñada para que cuaquier persona sin inportar su edad pueda usarla gracias a su intuitiva interfaz, ademas de que una de las caracteristicas destacables de la aplicacion es su velocidad en la creacion de tareas</p>
+            </div>
         </div>
-        {% endif %}
-
+    </section>
+    <section class="clientes contenedor">
+        <h2 class="titulo">Que dicen nuestros clientes</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="img/face1.jpg" alt="">
+                <div class="contenido-texto-card">
+                    <h4>Leonardo</h4>
+                    <p>Una aplicacion rapida y sencilla de usar, con una interfaz muy intuitiva, cumple con lo prometido</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="img/face2.jpg" alt="">
+                <div class="contenido-texto-card">
+                    <h4>Aduardo</h4>
+                    <p>Me ha gustado la aplicacion ya que permite aumentar mucho la productividad, ademas de tener funciones muy utiles como programar recordatorios</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about-services">
+        <div class="contenedor">
+            <h2 class="titulo">Nuestros servicios</h2>
+            <div class="servicio-cont">
+                <div class="servicio-ind">
+                    <img src="img/ilustracion1.svg" alt="">
+                    <h3>interfaz intuitiva</h3>
+                    <p>Una interfaz intuitiva para evitar distracciones y que todos puedan disfrutar de la aplicacion</p>
+                </div>
+                <div class="servicio-ind">
+                    <img src="img/ilustracion4.svg" alt="">
+                    <h3>Multiplataforma</h3>
+                    <p>TaskMind ofrece soporte para distintos navegadores y sistema operativo</p>
+                </div>
+                <div class="servicio-ind">
+                    <img src="img/ilustracion3.svg" alt="">
+                    <h3>Creacion rapida de Tareas</h3>
+                    <p>Crea tareas en un instante y desde cualquier lugar y abrelas en el momento que tu quieras</p>
+                </div>
+            </div>
+        </div>
     </section>
 </main>
+<footer>
+    <div class="contenedor-footer">
+        <div class="content-foo">
+            <h4>Telefono</h4>
+            <p>8296312</p>
+        </div>
+        <div class="content-foo">
+            <h4>E-mail</h4>
+            <p>8296312</p>
+        </div>
+        <div class="content-foo">
+            <h4>Localizacion</h4>
+            <p>8296312</p>
+        </div>
+    </div>
+    <h2 class="titulo-final">TaskMind</h2>
+</footer>
 {% endblock %}
+
