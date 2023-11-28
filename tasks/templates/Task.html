@@ -1,4 +1,22 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
+
+{% block header %}
+<header>
+    <nav>
+        <a href="{% url 'home' %}">Inicio</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'task' %}">Tareas Pendientes</a>
+        <a href="{% url 'task_completed' %}">Tareas Completadas</a>
+        <a href="{% url 'task_create' %}">Crear Tarea</a>
+        <a href="{% url 'logout' %}">Cerrar Sesion</a>
+        {% else %}
+        <a href="{% url 'signup' %}">Registrate</a>
+        <a href="{% url 'signin' %}">Iniciar Sesion</a>
+        {% endif %}
+    </nav>
+</header>
+
+{% endblock %}
 
 {% block content %}
 <main class="container">

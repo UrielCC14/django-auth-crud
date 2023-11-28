@@ -1,11 +1,53 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+
+<header>
+    <nav>
+        <a href="{% url 'home' %}">Inicio</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'task' %}">Tareas Pendientes</a>
+        <a href="{% url 'task_completed' %}">Tareas Completadas</a>
+        <a href="{% url 'task_create' %}">Crear Tarea</a>
+        <a href="{% url 'logout' %}">Cerrar Sesion</a>
+        {% else %}
+        <a href="{% url 'signup' %}">Registrate</a>
+        <a href="{% url 'signin' %}">Iniciar Sesion</a>
+        {% endif %}
+    </nav>
+
+    <section class="textos-header">
+        <h1>Aumenta tu productividad en un 200%</h1>
+        <h2>Con una aplicacion web potente e intuitiva</h2>
+    </section>
+    <div class="wave" style="height: 150px; overflow: hidden;">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none"
+            style="height: 100%; width: 100%;">
+            <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                style="stroke: none; fill: #fff;">
+            </path>
+        </svg>
+    </div>
+    {% if user.is_authenticated %}
+    {% else %}
+    <div class="buttons-header">
+        <a class="btn btn-dark me-3" href="{% url 'signup' %}">Crear Cuenta</a>
+        <a class="btn btn-secondary ms-2" href="{% url 'signin' %}">Registrate</a>
+    </div>
+    {% endif %}
+</header>
+{% endblock %}
+
+<!-- Contenido Principal -->
+
 {% block content %}
 
 <main>
     <section class="contenedor sobre-nosotros">
         <h2 class="titulo">Nuestra Aplicacion</h2>
         <div class="contenedor-sobre-nosotros">
-            <img src="img/ilustracion2.svg" alt="" class="imagen-about-us">
+            <img src="{% static 'img/ilustracion2.svg' %}" alt="" class="imagen-about-us">
             <div class="contenido-textos">
                 <h3><span>1</span>La mejor aplicacion de productividad</h3>
                 <p>TaskMind esta diseñada para que puedas programar tus tareas y actividades sin tener que esforzarte mucho y su interfaz intuitiva y clara te hara evitar las distracciones y concentrarte solo en lo nesesario</p>
@@ -18,16 +60,16 @@
         <h2 class="titulo">Que dicen nuestros clientes</h2>
         <div class="cards">
             <div class="card">
-                <img src="img/face1.jpg" alt="">
+                <img src="{% static 'img/descarga.png' %}" alt="">
                 <div class="contenido-texto-card">
                     <h4>Leonardo</h4>
                     <p>Una aplicacion rapida y sencilla de usar, con una interfaz muy intuitiva, cumple con lo prometido</p>
                 </div>
             </div>
             <div class="card">
-                <img src="img/face2.jpg" alt="">
+                <img src="{% static 'img/descarga.png' %}" alt="">
                 <div class="contenido-texto-card">
-                    <h4>Aduardo</h4>
+                    <h4>Eduardo</h4>
                     <p>Me ha gustado la aplicacion ya que permite aumentar mucho la productividad, ademas de tener funciones muy utiles como programar recordatorios</p>
                 </div>
             </div>
@@ -38,17 +80,17 @@
             <h2 class="titulo">Nuestros servicios</h2>
             <div class="servicio-cont">
                 <div class="servicio-ind">
-                    <img src="img/ilustracion1.svg" alt="">
+                    <img src="{% static 'img/ilustracion1.svg' %}" alt="">
                     <h3>interfaz intuitiva</h3>
                     <p>Una interfaz intuitiva para evitar distracciones y que todos puedan disfrutar de la aplicacion</p>
                 </div>
                 <div class="servicio-ind">
-                    <img src="img/ilustracion4.svg" alt="">
+                    <img src="{% static 'img/ilustracion3.svg' %}" alt="">
                     <h3>Multiplataforma</h3>
                     <p>TaskMind ofrece soporte para distintos navegadores y sistema operativo</p>
                 </div>
                 <div class="servicio-ind">
-                    <img src="img/ilustracion3.svg" alt="">
+                    <img src="{% static 'img/ilustracion4.svg' %}" alt="">
                     <h3>Creacion rapida de Tareas</h3>
                     <p>Crea tareas en un instante y desde cualquier lugar y abrelas en el momento que tu quieras</p>
                 </div>
@@ -74,4 +116,3 @@
     <h2 class="titulo-final">TaskMind</h2>
 </footer>
 {% endblock %}
-
